@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123184910) do
+ActiveRecord::Schema.define(version: 20161123193027) do
+
+  create_table "letters", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "email"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "letters", ["user_id"], name: "index_letters_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
