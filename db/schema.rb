@@ -17,11 +17,12 @@ ActiveRecord::Schema.define(version: 20161123193027) do
     t.integer  "user_id"
     t.string   "url"
     t.string   "email"
-    t.text     "commet"
-    t.boolean  "status"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "letters", ["user_id"], name: "index_letters_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
